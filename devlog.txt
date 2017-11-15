@@ -1,3 +1,21 @@
-yeH -- 2017-11-14 9:22:00
-Add base files to project & add test API code
+Team U N I
+Yuanchu Liu, Queenie Xiang, Helen Ye, Jasper Cheung
+SoftDev1 pd7
+P#01 - arRESTed development
 
+Devlog!
+    __               __
+|\ |__ \  / |    /\ | _
+|/ |__  \/  |__  \/ |__|
+----
+Example timestamp (for copy/pasting) : topherM -- 1999-12-31 23:59
+----
+
+yeH -- 2017-11-14 21:22
+Add base files to project & add test API code
+------------------
+xiangQ -- 2017-11-15 13:11
+Add site map to design doc
+------------------
+whole squad -- 2017-11-15 13:14
+Complete design doc
