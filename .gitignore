@@ -104,4 +104,4 @@ ENV/
 *~
 *.swp
 
-.secret_key
+.secret_key.txt
