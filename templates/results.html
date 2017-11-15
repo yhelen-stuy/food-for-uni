@@ -1,0 +1,54 @@
+<!--
+Queenie Xiang
+SoftDev1 pd7
+HW14 -- Getting More REST
+2017-11-12
+-->
+
+<html>
+  <center>
+    <head>
+      <title> Yummy Recipes! </title> 
+      <style>
+	h1 {
+	font-family: papyrus;
+	font-size: 80px;
+	}
+	
+	body {
+	font-family: papyrus;
+	font-size: 20px;
+	background-image: url("https://thumbs.dreamstime.com/b/gingerbread-man-seamless-pattern-cute-vector-background-new-year-s-day-christmas-winter-holiday-cooking-eve-food-61229872.jpg")
+	}
+
+	a:link {
+	color:  #a377ea
+	}
+
+	a:hover {
+	color: #e7f95c
+	}
+
+	a:visited {
+	color: #1a3f7a
+	}
+	
+      </style>
+      
+      <h1> RECIPES </h1> 
+    </head>
+
+  <body>
+    {% for entry in d %}
+    
+    <b> {{entry["title"]}} </b> <br>
+    By: {{entry["publisher"]}} <br>
+    Link: <a href={{entry["source_url"]}}> {{entry["source_url"]}} </a> <br>
+    <img src= {{entry["image_url"]}} > <br><br>
+    ***
+    <br><br>
+    {% endfor %} 
+       
+  </body>
+  </center>
+</html>
