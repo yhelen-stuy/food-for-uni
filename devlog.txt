@@ -23,3 +23,6 @@ Complete design doc
 liuY -- 2017-11-16 13:11
 Start work on home page
 ------------------
+yeH -- 2017-11-16 13:13
+Link bootstrap and clean up repo
+------------------

@@ -1,11 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
-app = Flask(__name__)
-
-@app.route("/")
-def index():
-    return "hi"
-
 import urllib2
+import requests
 import json
 from flask import Flask, session, url_for, redirect, render_template, request
 import os
@@ -13,18 +7,17 @@ import os
 #App instantiation
 app = Flask(__name__)
 
-
 @app.route("/")
 def homepage():
-    return render_template("homepage.html")
+    return render_template("home.html")
 
 @app.route("/redirecting")
-def redirecting(): 
+def redirecting():
     if (request.args["choice"] == "space"):
         return redirect("/space")
     else:
         return redirect("/recipes_search")  
-        
+
 @app.route("/recipes_search")
 def food():
     return render_template("recipe_search.html") 
@@ -32,7 +25,7 @@ def food():
 @app.route("/results")
 def display_food():
     #Grabs ingredient keywords that the user entered
-    
+
     keywords = request.args["ingredients"]
 
     #Accesses the site through specific keywords for the search query 
@@ -52,18 +45,8 @@ def display_food():
     d.pop("count")
 
     return render_template("results.html", d = d["recipes"]) 
-    
 
 if __name__ == "__main__":
     app.debug = True
 
 app.run()
- 
-
-
-    
-
-
-if __name__ == "__main__":
-    app.debug = True
-    app.run()
