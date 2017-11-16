@@ -5,14 +5,6 @@ app = Flask(__name__)
 def index():
     return "hi"
 
-
-'''
-Queenie Xiang
-SoftDev1 pd7
-HW14 -- Getting More REST
-2017-11-12
-'''
-
 import urllib2
 import json
 from flask import Flask, session, url_for, redirect, render_template, request
@@ -35,11 +27,12 @@ def redirecting():
         
 @app.route("/recipes_search")
 def food():
-    return render_template("food.html") 
+    return render_template("recipe_search.html") 
 
 @app.route("/results")
 def display_food():
-    #Grabs ingredient keywords that the user entered 
+    #Grabs ingredient keywords that the user entered
+    
     keywords = request.args["ingredients"]
 
     #Accesses the site through specific keywords for the search query 
