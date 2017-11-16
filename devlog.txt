@@ -19,3 +19,7 @@ Add site map to design doc
 ------------------
 whole squad -- 2017-11-15 13:14
 Complete design doc
+------------------
+liuY -- 2017-11-16 13:11
+Start work on home page
+------------------
