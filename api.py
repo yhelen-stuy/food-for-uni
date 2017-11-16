@@ -1,7 +1,7 @@
 import json
 import requests
 
-f = open('./.secret_key', 'rU')
+f = open('./.secret_key.txt', 'rU')
 keys = json.loads(f.read())
 f.close()
 
