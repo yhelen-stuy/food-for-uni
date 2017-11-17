@@ -23,18 +23,17 @@ ZOMATO_HEADER = {'user-key': ZOMATO_KEY}
 
 # ZOMATO CODE
 # Slow...
-def restaurant_search(rest_id=None, query='', location='', radius=None,
+def restaurant_search(res_id=None, query='', location='', radius=None,
                      max_amt=None, cuisines=[], sort='rating', order='desc'):
-    '''Return the restaurants that match the parameters given.
-    '''
-    url = ZOMATO_URL + "/search"
+    '''Return the restaurants that match the parameters given.'''
+    url = ZOMATO_URL + "search"
 
     if location != '':
         location = find_location(query=location)[0]
     else:
         location = {'latitude': None, 'longitude': None}
 
-    params = {'entity_id': rest_id,
+    params = {'entity_id': res_id,
                 'q': query,
                 'lat': location['latitude'],
                 'lon': location['longitude'],
@@ -49,8 +48,17 @@ def restaurant_search(rest_id=None, query='', location='', radius=None,
     restaurants = req.json()
     return restaurants['restaurants']
 
+def restaurant_info(res_id):
+    '''Return the Zomato API information about a specific restaurant.'''
+    url = ZOMATO_URL + 'restaurant'
+    params = {'res_id': res_id}
+    req = requests.get(url, headers=ZOMATO_HEADER, params=params)
+    info = req.json()
+    return info
+
 def find_location(query, max_amt=1):
-    url = ZOMATO_URL + "/locations"
+    '''Return the Zomato API information about a location.'''
+    url = ZOMATO_URL + "locations"
     if max_amt < 1:
         return []
     params = {'query': query,
@@ -65,3 +73,4 @@ if __name__ == "__main__":
     rs = restaurant_search(location='New york city', max_amt=2)
     for r in rs:
         print r
+    print restaurant_info(rs[1]['restaurant']['id'])
