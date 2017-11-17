@@ -26,3 +26,6 @@ Start work on home page
 yeH -- 2017-11-16 13:13
 Link bootstrap and clean up repo
 ------------------
+yeH -- 2017-11-16 13:13
+Clean up code and add base for restaurant search page
+------------------

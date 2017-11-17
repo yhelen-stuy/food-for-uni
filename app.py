@@ -16,13 +16,13 @@ def redirecting():
     if (request.args["choice"] == "space"):
         return redirect("/space")
     else:
-        return redirect("/recipes_search")  
+        return redirect("/recipes_search")
 
 @app.route("/recipes_search")
 def food():
-    return render_template("recipe_search.html") 
+    return render_template("recipe_search.html")
 
-@app.route("/results")
+@app.route("/recipes")
 def display_food():
     #Grabs ingredient keywords that the user entered
 
@@ -44,7 +44,11 @@ def display_food():
     #Removing one unnecessary key from the dictionary 
     d.pop("count")
 
-    return render_template("results.html", d = d["recipes"]) 
+    return render_template("recipe_results.html", d = d["recipes"])
+
+@app.route("/restaurant_search", methods=["GET"])
+def rest_search():
+    return render_template("restaurant_search.html")
 
 if __name__ == "__main__":
     app.debug = True
