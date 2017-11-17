@@ -28,9 +28,21 @@ def display_food():
 
     keywords = request.args["ingredients"]
 
+    sort = request.args["sort"]
+
+
     #Accesses the site through specific keywords for the search query 
-    site= "http://food2fork.com/api/search?key=95e985762f234c8784ac3d8c57a1f3dd&q="
+    site= "http://food2fork.com/api/search?key=95e985762f234c8784ac3d8c57a1f3dd&"
+
+    #ADD IN HOW YOU SORT
+    sort_link = "sort=h&"
+    site += sort_link 
+    add = "q="
+    site += add 
     site+=keywords
+
+    print site
+    
     hdr = {'User-Agent': 'Mozilla/5.0'}
     req = urllib2.Request(site,headers=hdr)
     uResp = urllib2.urlopen(req)
