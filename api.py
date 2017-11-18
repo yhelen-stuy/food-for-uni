@@ -23,7 +23,7 @@ ZOMATO_HEADER = {'user-key': ZOMATO_KEY}
 
 # ZOMATO CODE
 # Slow...
-def restaurant_search(res_id=None, query='', location='', radius=None,
+def restaurant_search(query='', location='', radius=None,
                      max_amt=None, cuisines=[], sort='rating', order='desc'):
     '''Return the restaurants that match the parameters given.'''
     url = ZOMATO_URL + "search"
@@ -33,7 +33,7 @@ def restaurant_search(res_id=None, query='', location='', radius=None,
     else:
         location = {'latitude': None, 'longitude': None}
 
-    params = {'entity_id': res_id,
+    params = {
                 'q': query,
                 'lat': location['latitude'],
                 'lon': location['longitude'],

@@ -32,3 +32,6 @@ Clean up code and add base for restaurant search page
 yeH -- 2017-11-17 16:00
 Add Zomato API functions
 ------------------
+yeH -- 2017-11-18 12:00
+Add frontend for search page
+------------------
