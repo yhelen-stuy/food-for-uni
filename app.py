@@ -1,5 +1,5 @@
 import urllib2
-import requests
+#import requests
 import json
 from flask import Flask, session, url_for, redirect, render_template, request
 import os
@@ -13,11 +13,13 @@ def homepage():
 
 @app.route("/redirecting")
 def redirecting():
+    
     if (request.args["choice"] == "space"):
         return redirect("/space")
     else:
         return redirect("/recipes_search")
-
+        
+    
 @app.route("/recipes_search")
 def food():
     return render_template("recipe_search.html")
@@ -25,11 +27,14 @@ def food():
 @app.route("/recipes")
 def display_food(): #Grabs ingredient keywords that the user entered
 
+    '''
     keywords = request.args["ingredients"]
 
     sort = request.args["sort"]
 
-    #Accesses the site through specific keywords for the search query
+    '''
+    #Accesses the site through specific keywords for the search query 
+
     site= "http://food2fork.com/api/search?key=95e985762f234c8784ac3d8c57a1f3dd&"
 
     #ADD IN HOW YOU SORT
@@ -41,6 +46,8 @@ def display_food(): #Grabs ingredient keywords that the user entered
 
     print site
 
+    '''
+>>>>>>> Stashed changes
     hdr = {'User-Agent': 'Mozilla/5.0'}
     req = urllib2.Request(site,headers=hdr)
     uResp = urllib2.urlopen(req)
@@ -53,6 +60,7 @@ def display_food(): #Grabs ingredient keywords that the user entered
 
     #Removing one unnecessary key from the dictionary
     d.pop("count")
+    '''
 
     return render_template("recipe_results.html", d = d["recipes"])
 
