@@ -30,20 +30,23 @@ yeH -- 2017-11-16 19:05
 Clean up code and add base for restaurant search page
 ------------------
 yeH -- 2017-11-17 16:00
-Add Zomato API functions
+Add Zomato API helper functions
 ------------------
 yeH -- 2017-11-18 12:00
 Add frontend for search page
 ------------------
 yeH -- 2017-11-21 21:00
-Add basic restaurant search results
+Add basic restaurant search results front and back end
 ------------------
 yeH -- 2017-11-21 23:00
-Flesh out restaurant search results
+Flesh out restaurant search results page
 ------------------
 yeH -- 2017-11-22 09:45
-Fix bug
+Fix error that is raised when radio fields arent submitted
 ------------------
 yeH -- 2017-11-22 10:15
-Edit homepage
+Edit homepage to look better
+------------------
+yeH -- 2017-11-22 13:15
+Add footer with team and names
 ------------------
