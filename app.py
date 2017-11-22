@@ -73,15 +73,21 @@ def restaurant_results():
         cuisines = []
     else:
         cuisines = args['cuisines'].split(',')
-    sort = args['sort']
-    order = args['order']
+    try:
+        sort = args['sort']
+    except KeyError:
+        sort = 'rating'
+    try:
+        order = args['order']
+    except KeyError:
+        order = 'desc'
     rests = api.restaurant_search(args['query'],
                                     args['location'],
                                     args['radius'],
                                     args['max_amt'],
                                     cuisines,
-                                    args['sort'],
-                                    args['order'])
+                                    sort,
+                                    order)
     # if not (q or rad or max_amt or not cuisines.empty()):
     #     if loc:
     #         return redirect(url_for('restaurant_rec')) # send location info
@@ -89,7 +95,7 @@ def restaurant_results():
     #         return redirect(url_for('restaurant_rec'))
     return render_template("restaurant_results.html",
             rests = rests['restaurants'],
-            num = rests['results_found'])
+            num = rests['results_shown'])
 
 @app.route("/restaurant", methods=["GET"])
 def restaurant():

@@ -41,3 +41,6 @@ Add basic restaurant search results
 yeH -- 2017-11-21 23:00
 Flesh out restaurant search results
 ------------------
+yeH -- 2017-11-22 09:45
+Fix bug
+------------------
