@@ -38,6 +38,9 @@ Add Zomato API helper functions
 yeH -- 2017-11-18 12:00
 Add frontend for search page
 ------------------
+xiangQ -- 2017-11-21 12:40
+Used bootstrap and added to the recipes search page
+------------------
 yeH -- 2017-11-21 21:00
 Add basic restaurant search results front and back end
 ------------------
@@ -53,3 +56,8 @@ Edit homepage to look better
 yeH -- 2017-11-22 13:15
 Add footer with team and names
 ------------------
+xiangQ -- 2017-11-22 13:16
+Modified the recipes search portion:
+Added a new sort mechanism (based on highest rating or trendiness)
+Added a text area for ingredients to avoid (allergies)
+
