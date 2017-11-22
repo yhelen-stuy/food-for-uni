@@ -73,7 +73,7 @@ def find_location(query, max_amt=1):
 if __name__ == "__main__":
     # print find_location('New York City')
     # print find_location('boston')
-    rs = restaurant_search(location='New york city', max_amt=2)
-    for r in rs:
+    rs = restaurant_search('','New york city', None, 2, [], '', '')
+    for r in rs['restaurants']:
         print r
-    print restaurant_info(rs[1]['restaurant']['id'])
+    print restaurant_info(rs['restaurants'][1]['restaurant']['id'])

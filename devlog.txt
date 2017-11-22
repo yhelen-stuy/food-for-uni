@@ -38,3 +38,6 @@ Add frontend for search page
 yeH -- 2017-11-21 21:00
 Add basic restaurant search results
 ------------------
+yeH -- 2017-11-21 23:00
+Flesh out restaurant search results
+------------------

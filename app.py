@@ -88,7 +88,12 @@ def restaurant_results():
     #     else:
     #         return redirect(url_for('restaurant_rec'))
     return render_template("restaurant_results.html",
-            rests = rests['restaurants'])
+            rests = rests['restaurants'],
+            num = rests['results_found'])
+
+@app.route("/restaurant", methods=["GET"])
+def restaurant():
+    return render_template("restaurant.html")
 
 if __name__ == "__main__":
     app.debug = True

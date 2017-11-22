@@ -8,8 +8,20 @@ Restaurant Results
 
 <div class="row">
     <div class="col">
+        <h3>Restaurants Fitting Your Criteria:</h3>
+        <p>Results: {{ num }}</p>
         {% for rest in rests %}
-        <h4> {{ rest['restaurant']['name'] }} </h4>
+        {% set rest = rest['restaurant'] %}
+        <h4><a href="/restaurant?rest_id={{ rest['id'] }}"> {{ rest['name'] }} </a></h4>
+        <ul>
+            <li> Address: {{ rest['location']['address'] }}</li>
+            <li> Avg Price for Two: {{ rest['currency'] }}{{ rest['average_cost_for_two'] }} </li>
+            <li> Rating: {{ rest['user_rating']['aggregate_rating'] }}
+                <ul>
+                    <li> {{ rest['user_rating']['votes'] }} votes</li>
+                </ul>
+            </li>
+        </ul>
         {% endfor %}
     </div>
 </div>
