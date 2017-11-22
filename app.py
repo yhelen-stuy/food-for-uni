@@ -1,8 +1,8 @@
+from flask import Flask, session, url_for, redirect, render_template, request
 import urllib2
 import requests
 import json
-from flask import Flask, session, url_for, redirect, render_template, request
-import os
+import api
 
 #App instantiation
 app = Flask(__name__)
@@ -16,20 +16,24 @@ def redirecting():
     if (request.args["choice"] == "space"):
         return redirect("/space")
     else:
-        return redirect("/recipes_search")
+        return redirect("/recipe_search")
 
-@app.route("/recipes_search")
+
+@app.route("/recipe_search")
 def food():
     return render_template("recipe_search.html")
 
 @app.route("/recipes")
 def display_food(): #Grabs ingredient keywords that the user entered
 
+    '''
     keywords = request.args["ingredients"]
 
     sort = request.args["sort"]
 
-    #Accesses the site through specific keywords for the search query
+    '''
+    #Accesses the site through specific keywords for the search query 
+
     site= "http://food2fork.com/api/search?key=95e985762f234c8784ac3d8c57a1f3dd&"
 
     #ADD IN HOW YOU SORT
@@ -41,6 +45,7 @@ def display_food(): #Grabs ingredient keywords that the user entered
 
     print site
 
+    '''
     hdr = {'User-Agent': 'Mozilla/5.0'}
     req = urllib2.Request(site,headers=hdr)
     uResp = urllib2.urlopen(req)
@@ -53,6 +58,7 @@ def display_food(): #Grabs ingredient keywords that the user entered
 
     #Removing one unnecessary key from the dictionary
     d.pop("count")
+    '''
 
     return render_template("recipe_results.html", d = d["recipes"])
 
@@ -60,11 +66,41 @@ def display_food(): #Grabs ingredient keywords that the user entered
 def rest_search():
     return render_template("restaurant_search.html")
 
-@app.route("/restaurants", methods=["GET"])
+@app.route("/restaurant_results", methods=["GET"])
+def restaurant_results():
+    args = request.args
+    if args['cuisines']:
+        cuisines = []
+    else:
+        cuisines = args['cuisines'].split(',')
+    try:
+        sort = args['sort']
+    except KeyError:
+        sort = 'rating'
+    try:
+        order = args['order']
+    except KeyError:
+        order = 'desc'
+    rests = api.restaurant_search(args['query'],
+                                    args['location'],
+                                    args['radius'],
+                                    args['max_amt'],
+                                    cuisines,
+                                    sort,
+                                    order)
+    # if not (q or rad or max_amt or not cuisines.empty()):
+    #     if loc:
+    #         return redirect(url_for('restaurant_rec')) # send location info
+    #     else:
+    #         return redirect(url_for('restaurant_rec'))
+    return render_template("restaurant_results.html",
+            rests = rests['restaurants'],
+            num = rests['results_shown'])
+
+@app.route("/restaurant", methods=["GET"])
 def restaurant():
-    return render_template("restaurants.html")
+    return render_template("restaurant.html")
 
 if __name__ == "__main__":
     app.debug = True
-
-app.run()
+    app.run()
