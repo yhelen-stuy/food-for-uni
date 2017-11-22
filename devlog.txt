@@ -44,3 +44,6 @@ Flesh out restaurant search results
 yeH -- 2017-11-22 09:45
 Fix bug
 ------------------
+yeH -- 2017-11-22 10:15
+Edit homepage
+------------------
