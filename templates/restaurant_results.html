@@ -8,7 +8,9 @@ Restaurant Results
 
 <div class="row">
     <div class="col">
-        <p>"Hi"</p>
+        {% for rest in rests %}
+        <h4> {{ rest['restaurant']['name'] }} </h4>
+        {% endfor %}
     </div>
 </div>
 

@@ -7,8 +7,9 @@ Search for restaurants!
 {% block content %}
 <div class="row">
     <div class="col">
-        <form action="/restaurants" method="GET">
+        <form action="/restaurant_results" method="GET">
             <h3>What kind of restaurant are you looking for?</h3>
+            <h4>None of the fields are required.</h4>
             <div class="form-group">
                 <label for="query">Search for?</label>
                 <input type="text" class="form-control" name="query" placeholder="Anything specific you're looking for..." autofocus>
@@ -37,17 +38,17 @@ Search for restaurants!
                 <p>Sort by?</p>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="sort"> Rating
+                        <input class="form-check-input" type="radio" name="sort" value="rating"> Rating
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="sort"> Cost
+                        <input class="form-check-input" type="radio" name="sort" value="cost"> Cost
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="sort"> Distance
+                        <input class="form-check-input" type="radio" name="sort" value="real_distance"> Distance
                     </label>
                 </div>
             </div>
@@ -55,12 +56,12 @@ Search for restaurants!
                 <p> Order </p>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="order"> Ascending
+                        <input class="form-check-input" type="radio" name="order" value="asc"> Ascending
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="order"> Descending
+                        <input class="form-check-input" type="radio" name="order" value="desc"> Descending
                     </label>
                 </div>
             </div>

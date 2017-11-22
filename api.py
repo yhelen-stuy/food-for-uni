@@ -23,8 +23,8 @@ ZOMATO_HEADER = {'user-key': ZOMATO_KEY}
 
 # ZOMATO CODE
 # Slow...
-def restaurant_search(query='', location='', radius=None,
-                     max_amt=None, cuisines=[], sort='rating', order='desc'):
+def restaurant_search(query, location, radius, max_amt,
+                        cuisines, sort, order):
     '''Return the restaurants that match the parameters given.'''
     url = ZOMATO_URL + "search"
 
@@ -43,10 +43,13 @@ def restaurant_search(query='', location='', radius=None,
                 'sort': sort,
                 'order': order
             }
-    req = requests.get(url, headers=ZOMATO_HEADER, params=params)
-    # print req.url
-    restaurants = req.json()
-    return restaurants['restaurants']
+    try:
+        req = requests.get(url, headers=ZOMATO_HEADER, params=params)
+        # print req.url
+        restaurants = req.json()
+    except HTTPError:
+        return None
+    return restaurants
 
 def restaurant_info(res_id):
     '''Return the Zomato API information about a specific restaurant.'''
