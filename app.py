@@ -16,10 +16,10 @@ def redirecting():
     if (request.args["choice"] == "space"):
         return redirect("/space")
     else:
-        return redirect("/recipes_search")
+        return redirect("/recipe_search")
 
 
-@app.route("/recipes_search")
+@app.route("/recipe_search")
 def food():
     return render_template("recipe_search.html")
 
