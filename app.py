@@ -2,7 +2,7 @@ from flask import Flask, session, url_for, redirect, render_template, request
 import urllib2
 import requests
 import json
-import api
+#import api
 
 #App instantiation
 app = Flask(__name__)
