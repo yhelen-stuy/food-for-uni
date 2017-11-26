@@ -60,10 +60,19 @@ xiangQ -- 2017-11-22 13:16
 Modified the recipes search portion:
 Added a new sort mechanism (based on highest rating or trendiness)
 Added a text area for ingredients to avoid (allergies)
-
 --------------------
 cheungJ -- 2017-11-22 16:05
 Added barebones nav bar to base.html
+--------------------
+xiangQ -- 2017-11-26 14:37
+Added bootstrap to the recipes_result.html
+Created a thumbnail and added caption to the images on recipes_result.html
+Allowed user to filter out unwanted ingredients
+Refined grabbing info from recipes search (used .lower(), removed white spaces, etc.)
+Added this mechanism: 
+In case there are no recipes for one sort method,
+App.py: request and grab information for the ingredients from API using the other sort method  
+Redirect.html: Allows user to search again or continue and view recipes using the other sort method 
 ------------------
 yeH -- 2017-11-26 15:45
 Add page for specific restaurants
@@ -71,3 +80,4 @@ Add a back button on the search page
 Add secret key for sessions (was returning error when I tried to flash)
 Add rendering for flashes
 Fix bugs encountered along the way
+--------------------
