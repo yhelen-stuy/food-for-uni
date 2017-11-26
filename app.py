@@ -14,7 +14,7 @@ def homepage():
 @app.route("/redirecting")
 
 
-@app.route("/recipe_search")
+@app.route("/recipes_search")
 def food():
     return render_template("recipe_search.html")
 
@@ -55,10 +55,10 @@ def search(): #Grabs ingredient keywords that the user entered
         #print("no results")
         site = "http://food2fork.com/api/search?key=95e985762f234c8784ac3d8c57a1f3dd&"
         if (sort_link == "sort=r"):
-            message = "Oops, looks like there were no hightest rating recipes with the entered ingredients. Check to see if there are trendy recipes instead?"
+            message = "Oops, looks like there were no hightest rating recipes with the entered ingredients. Check to see the trendy recipes instead?"
             sort_link = "sort=t"
         else:
-            message = "Oops, looks like there were no trendy recipes with the entered ingredients. Check to see if there are highest rating recipes instead?"
+            message = "Oops, looks like there were no trendy recipes with the entered ingredients. Check to see the highest rated recipes instead?"
             sort_link = "sort=r"
             
         site += sort_link 

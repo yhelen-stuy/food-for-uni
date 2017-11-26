@@ -68,5 +68,9 @@ xiangQ -- 2017-11-26 14:37
 Added bootstrap to the recipes_result.html
 Created a thumbnail and added caption to the images on recipes_result.html
 Allowed user to filter out unwanted ingredients
-Refined grabbing info from website (used .lower(), removed white spaces, etc.)
+Refined grabbing info from recipes search (used .lower(), removed white spaces, etc.)
+Added this mechanism: 
+In case there are no recipes for one sort method,
+App.py: request and grab information for the ingredients from API using the other sort method  
+Redirect.html: Allows user to search again or continue and view recipes using the other sort method 
 --------------------

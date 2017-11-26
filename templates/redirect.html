@@ -1,6 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+Yummy Food Time
+{% endblock %}
+
+{% block content %}
 <html>
+  <center> 
+  <head>
+    <div class="jumbotron">
+      <h1> Uh oh... </h1>
+    </div>
+    
   <body>
     {{message}} <br>
-    <a href="/recipes_results"> here </a>
+     <a href="/recipes_search" class="btn btn-info"> Search Again </a>  <a href="/recipes_results" class="btn btn-info"> Yes, proceed! </a>
+   
   </body>
+  
+  </center>
 </html>
+
+{% endblock %}
