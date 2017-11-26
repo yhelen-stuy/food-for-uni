@@ -21,7 +21,7 @@ def food():
     return render_template("recipe_search.html")
 
 @app.route("/recipes")
-def display_food(): #Grabs ingredient keywords that the user entered
+def search(): #Grabs ingredient keywords that the user entered
     site= "http://food2fork.com/api/search?key=95e985762f234c8784ac3d8c57a1f3dd&"
     hdr = {'User-Agent': 'Mozilla/5.0'}
     
