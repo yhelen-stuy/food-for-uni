@@ -1,9 +1,46 @@
 {% extends "base.html" %}
 
 {% block title %}
-Restaurant
+{{ rest['name'] }}
 {% endblock %}
 
 {% block content %}
-hi
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col-md-9">
+                <h1>{{ rest['name'] }}</h1>
+                <h4 class="text-muted">
+                    {% for p in range(rest['price_range']) %}${% endfor %}
+                </h4>
+            </div>
+            {% set rating = rest['user_rating']['aggregate_rating'] %}
+            <div class="col-md-3">
+                <div class="card rounded p-1" style="border:2px solid #cecece">
+                    <div class="card-body text-center py-2" style="background-color: #{{ rest['user_rating']['rating_color'] }}">
+                        <h1 class="text-white display-5 font-weight-bold">{{ rating }} / 5.0</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-7">
+                <img src="{{ rest['featured_image'] }}" class="img-thumbnail" alt="{{rest['name']}}">
+            </div>
+            <div class="col-md-5">
+                <p class="lead">{{ rest['location']['address'] }}</p>
+                <div class="row">
+                    <div class="col-md-7">
+                        <p class="lead">Average Cost for Two</p>
+                    </div>
+                    <div class="col-md-5">
+                        <p class="lead">{{ rest['currency'] }} {{ rest['average_cost_for_two'] }}</p>
+                    </div>
+                </div>
+                <p class="lead"><a href="{{ rest['menu_url'] }}">Menu</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -73,4 +73,11 @@ Added this mechanism:
 In case there are no recipes for one sort method,
 App.py: request and grab information for the ingredients from API using the other sort method  
 Redirect.html: Allows user to search again or continue and view recipes using the other sort method 
+------------------
+yeH -- 2017-11-26 15:45
+Add page for specific restaurants
+Add a back button on the search page
+Add secret key for sessions (was returning error when I tried to flash)
+Add rendering for flashes
+Fix bugs encountered along the way
 --------------------
