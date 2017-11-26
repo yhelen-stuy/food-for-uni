@@ -1,9 +1,9 @@
-<!--
-Queenie Xiang
-SoftDev1 pd7
-HW14 -- Getting More REST
-2017-11-12
--->
+{% extends "base.html" %}
+{% block title %}
+Yummy Food Time
+{% endblock %}
+
+{% block content %}
 
 <html>
   <center>
@@ -18,37 +18,91 @@ HW14 -- Getting More REST
 	body {
 	font-family: papyrus;
 	font-size: 20px;
-	background-image: url("https://thumbs.dreamstime.com/b/gingerbread-man-seamless-pattern-cute-vector-background-new-year-s-day-christmas-winter-holiday-cooking-eve-food-61229872.jpg")
-	}
-
-	a:link {
-	color:  #a377ea
-	}
-
-	a:hover {
-	color: #e7f95c
 	}
 
 	a:visited {
 	color: #1a3f7a
 	}
+
+	.table-hover-cells > tbody > tr > td:hover {
+	background-color: #f5f5f5;
+	}
 	
       </style>
-      
-      <h1> RECIPES </h1> 
+
+      <div class="jumbotron"> 
+	<h1> RECIPES </h1>
+      </div>
     </head>
 
-  <body>
-    {% for entry in d %}
-    
-    <b> {{entry["title"]}} </b> <br>
-    By: {{entry["publisher"]}} <br>
-    Link: <a href={{entry["source_url"]}}> {{entry["source_url"]}} </a> <br>
-    <img src= {{entry["image_url"]}} > <br><br>
-    ***
-    <br><br>
-    {% endfor %} 
+    <body>
+      <div class="container">
+	<table class="table table-bordered table-hover-cells"> 
+	  {% for entry in d %}
+	  
+	  {% if loop.index % (4) == 1 %}
+	  <tr>
+	    <td>
+	      <div class="thumbnail">
+		<a href={{entry["source_url"]}}>
+		  <img src= {{entry["image_url"]}} class="rounded mx-auto d-bloc" width="250px" height="250px">
+		  <div class="caption">
+		    <center>
+		    <p>
+		      <b> {{entry["title"]}} </b> <br>
+		      By: {{entry["publisher"]}} <br>
+		    </p>
+		    </center>
+		  </div>
+		</a>
+	      </div>
+	    </td>
+
+	  {% elif loop.index % (4) == 0 %}
+	    <td>
+	     <div class="thumbnail">
+		<a href={{entry["source_url"]}}>
+		  <img src= {{entry["image_url"]}} class="rounded mx-auto d-bloc" width="250px" height="250px">
+		  <div class="caption">
+		    <center>
+		    <p>
+		      <b> {{entry["title"]}} </b> <br>
+		      By: {{entry["publisher"]}} <br>
+		    </p>
+		    </center>
+		  </div>
+		</a>
+	      </div>
+	    </td>
+	  </tr>
+	  
+	  {% else %}
+	    <td>
+	     <div class="thumbnail">
+		<a href={{entry["source_url"]}}>
+		  <img src= {{entry["image_url"]}} class="rounded mx-auto d-bloc" width="250px" height="250px">
+		  <div class="caption">
+		    <center>
+		    <p>
+		      <b> {{entry["title"]}} </b> <br>
+		      By: {{entry["publisher"]}} <br>
+		    </p>
+		    </center>
+		  </div>
+		</a>
+	      </div>
+	    </td>
+
+	  {% endif %}
+	  {% endfor %} 
+	</div>
+      </div>
+	     
+	    
+
        
   </body>
   </center>
 </html>
+
+{% endblock %}
