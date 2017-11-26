@@ -128,7 +128,7 @@ def restaurant_results():
             rests = rests['restaurants'],
             num = rests['results_shown'])
 
-    @app.route("/restaurant", methods=["GET"])
+@app.route("/restaurant", methods=["GET"])
 def restaurant():
     try:
         rest_id = request.args['rest_id']
