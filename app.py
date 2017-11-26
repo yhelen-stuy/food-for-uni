@@ -1,11 +1,13 @@
-from flask import Flask, session, url_for, redirect, render_template, request
+from flask import Flask, session, url_for, redirect, render_template, request, flash
 import urllib2
 import requests
 import json
+import os
 import api
 
 #App instantiation
 app = Flask(__name__)
+app.secret_key = os.urandom(32)
 
 @app.route("/")
 def homepage():
@@ -70,9 +72,9 @@ def rest_search():
 def restaurant_results():
     args = request.args
     if args['cuisines']:
-        cuisines = []
-    else:
         cuisines = args['cuisines'].split(',')
+    else:
+        cuisines = []
     try:
         sort = args['sort']
     except KeyError:
@@ -99,7 +101,14 @@ def restaurant_results():
 
 @app.route("/restaurant", methods=["GET"])
 def restaurant():
-    return render_template("restaurant.html")
+    try:
+        rest_id = request.args['rest_id']
+    except KeyError:
+        flash('No restaurant id given')
+        return redirect(url_for('rest_search'))
+    rest = api.restaurant_info(rest_id)
+    return render_template("restaurant.html",
+                            rest = rest)
 
 if __name__ == "__main__":
     app.debug = True

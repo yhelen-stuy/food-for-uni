@@ -64,4 +64,10 @@ Added a text area for ingredients to avoid (allergies)
 --------------------
 cheungJ -- 2017-11-22 16:05
 Added barebones nav bar to base.html
-
+------------------
+yeH -- 2017-11-26 15:45
+Add page for specific restaurants
+Add a back button on the search page
+Add secret key for sessions (was returning error when I tried to flash)
+Add rendering for flashes
+Fix bugs encountered along the way
