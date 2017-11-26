@@ -1,6 +1,6 @@
 from flask import Flask, session, url_for, redirect, render_template, request
 import urllib2
-#import requests
+import requests
 import json
 import api
 
