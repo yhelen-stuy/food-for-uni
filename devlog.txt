@@ -60,8 +60,13 @@ xiangQ -- 2017-11-22 13:16
 Modified the recipes search portion:
 Added a new sort mechanism (based on highest rating or trendiness)
 Added a text area for ingredients to avoid (allergies)
-
 --------------------
 cheungJ -- 2017-11-22 16:05
 Added barebones nav bar to base.html
-
+--------------------
+xiangQ -- 2017-11-26 14:37
+Added bootstrap to the recipes_result.html
+Created a thumbnail and added caption to the images on recipes_result.html
+Allowed user to filter out unwanted ingredients
+Refined grabbing info from website (used .lower(), removed white spaces, etc.)
+--------------------
