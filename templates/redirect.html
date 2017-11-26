@@ -6,11 +6,26 @@ Yummy Food Time
 {% block content %}
 <html>
   <center> 
-  <head>
+    <head>
+      <style>
+	body {
+	background-image: url("https://orig00.deviantart.net/2bb6/f/2008/207/8/8/oriental_foods_background__3_by_ispaz247.jpg")
+	}
+      </style>
+      
+   <!---  <style>
+      .jumbotron {
+      background-color:red !important; 
+      }
+    </style>
+   --->
+    
     <div class="jumbotron">
       <h1> Uh oh... </h1>
     </div>
     
+  </head>
+  
   <body>
     {{message}} <br>
      <a href="/recipes_search" class="btn btn-info"> Search Again </a>  <a href="/recipes_results" class="btn btn-info"> Yes, proceed! </a>
