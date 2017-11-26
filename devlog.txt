@@ -72,7 +72,8 @@ Refined grabbing info from recipes search (used .lower(), removed white spaces, 
 Added this mechanism: 
 In case there are no recipes for one sort method,
 App.py: request and grab information for the ingredients from API using the other sort method  
-Redirect.html: Allows user to search again or continue and view recipes using the other sort method 
+Redirect.html: Allows user to search again or continue and view recipes using the other sort method
+Prettified recipes search and results (Added background images and incorporated color theme)
 ------------------
 yeH -- 2017-11-26 15:45
 Add page for specific restaurants
