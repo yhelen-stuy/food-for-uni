@@ -1,7 +1,5 @@
-# softdev-project-1
-SoftDev Project 01 with Queenie Xiang, Jasper Cheung, Leo Liu
-
-## U N I
+# Food for U N I by Queenie Xiang, Jasper Cheung, Leo Liu, Helen Ye
+This project allows you to search for recipes if you want to cook yourself or restaurants if you want to eat out. If you're super indecisive, we have recommendations prepared for you!
 
 ## Launch Instructions
 
@@ -9,31 +7,35 @@ SoftDev Project 01 with Queenie Xiang, Jasper Cheung, Leo Liu
 
 #### ssh:
 
-`git clone git@github.com:yhelen-stuy/softdev-project-1.git`
+```git clone git@github.com:yhelen-stuy/softdev-project-1.git ~/softdev-project-1```
 
 #### https:
 
-`git clone https://github.com/yhelen-stuy/softdev-project-1.git`
+```git clone https://github.com/yhelen-stuy/softdev-project-1.git ~/softdev-project-1```
 
 ### 2. Procure API keys
 
 #### Food To Fork:
 
-Go to the [Food2Fork](https://food2fork.com/about/api)
-
-Sign up and request an API key
-
-Get said key in e-mail
+1. Go to the [Food2Fork](https://food2fork.com/about/api)
+2. Sign up and request an API key
+3. Get said key in e-mail
 
 #### Zomato:
 
-Go to the [Zomato API page](https://developers.zomato.com/api)
+1. Go to the [Zomato API page](https://developers.zomato.com/api)
+2. Request an API key
+3. Get said key in e-mail
 
-Request an API key
+Save both keys in `.secret_key.txt` in the same directory as app.py.
+It is recommended to copy the template below and replace the YOUR_KEY_HERE fields.
 
-Get said key in e-mail
-
-Save both keys in `.secret_key.txt` in the same directory as app.py
+```
+{
+  'zomato_key': 'YOUR_ZOMATO_KEY_HERE',
+  'food2fork_key': 'YOUR_FOOD2FORK_KEY_HERE'
+}
+```
 
 ### 3. Prepare for launch
 
@@ -41,28 +43,28 @@ Save both keys in `.secret_key.txt` in the same directory as app.py
 
 We recommend you use an virtual environment to install dependencies for this site.
 
-[To install virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
-
-[To create an virtualevn](https://virtualenv.pypa.io/en/stable/reference/#virtualenv-command)
+* [To install virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
+* [To create an virtualevn](https://virtualenv.pypa.io/en/stable/reference/#virtualenv-command)
 
 To activate virtualenv in a Unix-based system:
 
-`$ . <name of virtualenv>/bin/activae`
+```
+$ . <name of virtualenv>/bin/activate
+```
 
 #### Install dependencies
 
 With an activated virtualenv:
 
-`pip install flask`
-
-`pip install requests`
+```
+$ pip install flask
+$ pip install requests
+```
 
 ### 4. Launch
 
-In the repository for this site:
+```
+$ python ~/softdev-project-1/app.py
+```
 
-`python app.py`
-
-In a browser, navigate to:
-
-`localhost:5000`
+In a browser, navigate to `localhost:5000`. **ENJOY!!**
