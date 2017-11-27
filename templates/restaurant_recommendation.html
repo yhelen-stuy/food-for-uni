@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+Restaurant Reccomendations
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h3>Here are some restaurants with some great ratings!:</h3>
+        <p>Results: {{ num }}</p>
+        {% for rest in rests %}
+        {% set rest = rest['restaurant'] %}
+        <h4><a href="/restaurant?rest_id={{ rest['id'] }}"> {{ rest['name'] }} </a></h4>
+        <ul>
+            <li> Address: {{ rest['location']['address'] }}</li>
+            <li> Avg Price for Two: {{ rest['currency'] }}{{ rest['average_cost_for_two'] }} </li>
+            <li> Rating: {{ rest['user_rating']['aggregate_rating'] }}
+                <ul>
+                    <li> {{ rest['user_rating']['votes'] }} votes</li>
+                </ul>
+            </li>
+        </ul>
+        {% endfor %}
+    </div>
+</div>
+<div class="row">
+    <a href="/restaurant_search" class="btn btn-primary btn-lg" role="button">
+        Back
+    </a>
+</div>
+{% endblock %}

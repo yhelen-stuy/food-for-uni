@@ -137,7 +137,40 @@ def restaurant():
         return redirect(url_for('rest_search'))
     rest = api.restaurant_info(rest_id)
     return render_template("restaurant.html",
-            rest = rest)
+                           rest = rest)
+
+@app.route("/rest_recc")
+def rest_recc():
+    location = 'New York';
+    rests = api.restaurant_search('', location, None, 5, [], 'rating','desc')
+    return render_template("restaurant_recommendation.html",
+                           rests = rests['restaurants'],
+                           num = rests['results_shown'])
+@app.route("/cipe_recc")
+def cipe_recc():
+    site= "http://food2fork.com/api/search?key=95e985762f234c8784ac3d8c57a1f3dd&"
+    hdr = {'User-Agent': 'Mozilla/5.0'}
+
+    sort_link = "sort=r"
+    site += sort_link
+
+    ing_link = "&q="
+    site+=ing_link
+
+    req = urllib2.Request(site,headers=hdr)
+    uResp = urllib2.urlopen(req)
+
+    site_content = uResp.read()
+
+    global d 
+    d = json.loads(site_content)
+
+    d=d['recipes']
+    
+    return render_template("recipe_recommendation.html", d= d)
+
+    
+                           
 
 if __name__ == "__main__":
     app.debug = True
