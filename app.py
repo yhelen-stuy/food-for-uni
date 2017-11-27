@@ -109,6 +109,11 @@ def restaurant_results():
         order = args['order']
     except KeyError:
         order = 'desc'
+    if not (args['query'] or args['max_amt'] or len(cuisines) != 0):
+        if args['location']:
+            return redirect(url_for('rest_recc', location=args['location'])) # send location info
+        else:
+            return redirect(url_for('rest_recc'))
     rests = api.restaurant_search(args['query'],
             args['location'],
             args['radius'],
@@ -116,11 +121,6 @@ def restaurant_results():
             cuisines,
             sort,
             order)
-    # if not (q or rad or max_amt or not cuisines.empty()):
-    #     if loc:
-    #         return redirect(url_for('restaurant_rec')) # send location info
-    #     else:
-    #         return redirect(url_for('restaurant_rec'))
     return render_template("restaurant_results.html",
             rests = rests['restaurants'],
             num = rests['results_shown'])
@@ -138,11 +138,14 @@ def restaurant():
 
 @app.route("/rest_recc")
 def rest_recc():
-    location = 'New York';
-    rests = api.restaurant_search('', location, None, 5, [], 'rating','desc')
+    if request.args.get('location'):
+        rests = api.restaurant_search('', request.args.get('location'), None, 5, [], 'rating','desc')
+    else:
+        rests = api.restaurant_search('', 'new york city', None, 5, [], 'rating','desc')
     return render_template("restaurant_recommendation.html",
                            rests = rests['restaurants'],
                            num = rests['results_shown'])
+
 @app.route("/cipe_recc")
 def cipe_recc():
     site= "http://food2fork.com/api/search?key=95e985762f234c8784ac3d8c57a1f3dd&"

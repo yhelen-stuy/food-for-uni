@@ -84,6 +84,13 @@ Fix bugs encountered along the way
 --------------------
 yeH -- 2017-11-26 20:30
 Fix navbar
-------------------
+--------------------
 cheungJ -- 2017-11-26 22:34
 Added recommendation pages
+--------------------
+cheungJ and yeH -- 2017-11-26 13:15
+Combine restaurant search and recommendation redirection
+Rename navbar links
+Remove some CSS
+Fix typos
+--------------------
