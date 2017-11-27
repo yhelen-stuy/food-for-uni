@@ -82,3 +82,6 @@ Add secret key for sessions (was returning error when I tried to flash)
 Add rendering for flashes
 Fix bugs encountered along the way
 --------------------
+yeH -- 2017-11-26 20:30
+Fix navbar
+------------------
