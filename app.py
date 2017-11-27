@@ -52,7 +52,6 @@ def search(): #Grabs ingredient keywords that the user entered
     global d 
     d = json.loads(site_content)
 
-    global d 
     if (d['count'] == 0):
         #print("no results")
         site = "http://food2fork.com/api/search?key=95e985762f234c8784ac3d8c57a1f3dd&"
@@ -72,8 +71,7 @@ def search(): #Grabs ingredient keywords that the user entered
         #Grabbing information
         site_content = uResp.read()
 
-        #Turning grabebd information into a dictionary
-        global d 
+        #Turning grabebd information into a dictionary 
         d = json.loads(site_content)
 
         return render_template("redirect.html", message = message)
@@ -89,7 +87,6 @@ def recipes_results():
             if recipe['title'].lower().find(ing) != -1 :
                 d['recipes'].remove(recipe)
 
-    global d
     d=d['recipes']
     return render_template("recipe_results.html", d = d) 
 
