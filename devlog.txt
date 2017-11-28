@@ -103,3 +103,7 @@ yeH -- 2017-11-28 10:15
 Move all CSS to separate file
 Change some styling
 --------------------
+yeH, liuL, cheungJ, xiangQ -- 2017-11-28 13:15
+Selected background image for homepage
+Changed jumbotron colors to fit color scheme
+--------------------
