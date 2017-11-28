@@ -1,5 +1,5 @@
 # Food for U N I by Queenie Xiang, Jasper Cheung, Leo Liu, Helen Ye
-This project allows you to search for recipes if you want to cook yourself or restaurants if you want to eat out. If you're super indecisive, we have recommendations prepared for you!
+This project allows you to search for recipes if you want to cook yourself or restaurants (in America) if you want to eat out. If you're super indecisive, we have recommendations prepared for you!
 
 ## Launch Instructions
 
