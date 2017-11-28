@@ -7,11 +7,15 @@ This project allows you to search for recipes if you want to cook yourself or re
 
 #### ssh:
 
-```git clone git@github.com:yhelen-stuy/softdev-project-1.git ~/softdev-project-1```
+```
+$ git clone git@github.com:yhelen-stuy/food-for-uni.git ~/food-for-uni
+```
 
 #### https:
 
-```git clone https://github.com/yhelen-stuy/softdev-project-1.git ~/softdev-project-1```
+```
+$ git clone https://github.com/yhelen-stuy/food-for-uni.git ~/food-for-uni
+```
 
 ### 2. Procure API keys
 
@@ -44,7 +48,7 @@ It is recommended to copy the template below and replace the YOUR_KEY_HERE field
 We recommend you use an virtual environment to install dependencies for this site.
 
 * [To install virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
-* [To create an virtualevn](https://virtualenv.pypa.io/en/stable/reference/#virtualenv-command)
+* [To create an virtualenv](https://virtualenv.pypa.io/en/stable/reference/#virtualenv-command)
 
 To activate virtualenv in a Unix-based system:
 
@@ -64,7 +68,7 @@ $ pip install requests
 ### 4. Launch
 
 ```
-$ python ~/softdev-project-1/app.py
+$ python ~/food-for-uni/app.py
 ```
 
 In a browser, navigate to `localhost:5000`. **ENJOY!!**
