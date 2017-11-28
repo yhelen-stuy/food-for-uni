@@ -1,75 +1,51 @@
 {% extends "base.html" %}
+</body>
+</html>
 {% block title %}
 Yummy Food Time
 {% endblock %}
 
 {% block content %}
-<html>
-  <head>
-    <style>
-      .jumbotron {
-      background-color: #E2FFF1;
-      color: #A0C5C8;
-      }
-      
-      body {
-      background-image: url("https://images2.alphacoders.com/441/441650.jpg");
-      color: #9AA0CE;
-      }
+<style>
+body {
+    background-image: url("https://images2.alphacoders.com/441/441650.jpg");
+}
+</style>
 
-      a:link{
-      color: #BBBFDD;
-      }
-
-      a:visited{
-      color: #D2F3F4;
-      }
-      
-    </style>
-  </head>
-  
-  <center>
-    <div class="container">
-      <div class="jumbotron">
-	<h1>Search!</h1>
-	<p class="lead">To search for a recipe, fill in the desired ingredients (to the best of your abilities).</p>
-      </div>
+<div class="container recipe-search text-center">
+    <div class="jumbotron">
+        <h1>Search!</h1>
+        <p class="lead">To search for a recipe, fill in the desired ingredients (to the best of your abilities).</p>
     </div>
     <form action="/recipes" method="GET" id="ingredients">
 
-      <b> LIST YOUR INGREDIENTS OR KEYWORDS BELOW: </b>
-      <br>
-      <i> (Please separate each ingredient by using a comma) </i> 
-      <div class = "form-group">
-	<textarea class="form-control" name="ingredients"  row="4" required></textarea>
-      </div>
+        <b> LIST YOUR INGREDIENTS OR KEYWORDS BELOW: </b>
+        <br>
+        <i> (Please separate each ingredient by using a comma) </i> 
+        <div class = "form-group">
+            <textarea class="form-control" name="ingredients"  row="4" required></textarea>
+        </div>
 
-      <b> Any ingredients to avoid (i.e. allergies)? </b>
-      <br>
-      <i> (Please separate each ingredient by using a comma) </i> 
-      <div class = "form-group">
-	<textarea class="form-control" name="ing_to_avoid" row="4"></textarea>
-      </div>
+        <b> Any ingredients to avoid (i.e. allergies)? </b>
+        <br>
+        <i> (Please separate each ingredient by using a comma) </i> 
+        <div class = "form-group">
+            <textarea class="form-control" name="ing_to_avoid" row="4"></textarea>
+        </div>
 
-      <div class="form-check">
-	<b> How do you want your results to be sorted? </b>
-	  <br>
-	<label class="form-check-label">
-	  <input class="form-check-input" type="radio" name="sort" id = "ingredients" value="r" required>
-	  Highest Rating <br>
-	  <input class="form-check-input" type="radio" name="sort" id = "ingredients" value="t" required>
-	  Trendiness <br>
-	</label>
-      </div>
+        <div class="form-check">
+            <b> How do you want your results to be sorted? </b>
+            <br>
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="sort" id = "ingredients" value="r" required>
+                Highest Rating <br>
+                <input class="form-check-input" type="radio" name="sort" id = "ingredients" value="t" required>
+                Trendiness <br>
+            </label>
+        </div>
 
-      <br><br>
-
-
-      <input type="submit" name="submit">
-
-  </center>
-  </form>
-</body>
-
-</html>
+        <br><br>
+        <input type="submit" name="submit">
+    </form>
+</div>
 {% endblock %}

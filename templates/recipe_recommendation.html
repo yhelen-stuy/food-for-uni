@@ -4,124 +4,72 @@ Yummy Food Time
 {% endblock %}
 
 {% block content %}
-
-<html>
-  <center>
-    <head>
-      <title> Yummy Recipes Recommendation! </title> 
-      <style>
-	.jumbotron {
-	background-color: #FAE8EB;
-	color: #CC9474;
-	}
-	
-	body{
-	background-image: url("http://www.simplelistssimplelife.com/wp-content/uploads/2017/01/background-1932466_1920.jpg");
-	<!--- 
-	"http://www.highveldmushrooms.co.za/wp-content/uploads/2013/10/background.jpg"); 
-	"http://cdn0.saltandwind.com/static/recipe/img/section-title-background.jpg");
+<style> 
+body{
+    background-image: url("http://www.simplelistssimplelife.com/wp-content/uploads/2017/01/background-1932466_1920.jpg");
+        <!--- 
+        "http://www.highveldmushrooms.co.za/wp-content/uploads/2013/10/background.jpg"); 
+    "http://cdn0.saltandwind.com/static/recipe/img/section-title-background.jpg");
 "https://www.grahamsfamilydairy.com/sites/default/files/header-images/recipes-detail-background.jpg"
-	"https://newhopesurgical.com/wp-content/uploads/2015/08/bariatric-recipes.jpg"); 
-	  --->
-	}
+"https://newhopesurgical.com/wp-content/uploads/2015/08/bariatric-recipes.jpg"); --->
+}
+</style>
+<div class="recipe-rec text-center">
+    <div class="jumbotron"> 
+        <h1> RECIPE RECOMMENDATIONS </h1>
+    </div>
 
-	h1 {
-	font-family: papyrus;
-	font-size: 80px;
-	}
-	
-	body {
-	font-family: papyrus;
-	font-size: 20px;
-	}
+    <table class="table table-responsive table-inverse table-bordered table-hover-cells"> 
+        {% for entry in d %}
+        {% if loop.index % (4) == 1 %}
+        <tr>
+            <td>
+                <div class="thumbnail">
+                    <a href={{entry["source_url"]}}>
+                        <img src= {{entry["image_url"]}} class="rounded mx-auto d-bloc" width="250px" height="250px">
+                        <div class="caption">
+                            <p>
+                            <b> {{entry["title"]}} </b> <br>
+                            By: {{entry["publisher"]}} <br>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </td>
 
-	a:link{
-	color: #FAE8EB
-	}
-	
-	a:visited {
-	color: #FFC19E
-	}
-	
-	.table-hover-cells > tbody > tr > td:hover {
-	background-color: #CC9474
-	}
-	
-      </style>
+            {% elif loop.index % (4) == 0 %}
+            <td>
+                <div class="thumbnail">
+                    <a href={{entry["source_url"]}}>
+                        <img src= {{entry["image_url"]}} class="rounded mx-auto d-bloc" width="250px" height="250px">
+                        <div class="caption">
+                            <p>
+                            <b> {{entry["title"]}} </b> <br>
+                            By: {{entry["publisher"]}} <br>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        {% else %}
+        <td>
+            <div class="thumbnail">
+                <a href={{entry["source_url"]}}>
+                    <img src= {{entry["image_url"]}} class="rounded mx-auto d-bloc" width="250px" height="250px">
+                    <div class="caption">
+                        <p>
+                        <b> {{entry["title"]}} </b> <br>
+                        By: {{entry["publisher"]}} <br>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </td>
 
-      <div class="jumbotron"> 
-	<h1> RECIPE RECOMMENDATIONS </h1>
-      </div>
-    </head>
+        {% endif %}
+        {% endfor %} 
 
-    <body>
-      <div class="container">
-	<table class="table table-responsive table-inverse table-bordered table-hover-cells"> 
-	  {% for entry in d %}
-	  
-	  {% if loop.index % (4) == 1 %}
-	  <tr>
-	    <td>
-	      <div class="thumbnail">
-		<center>
-		<a href={{entry["source_url"]}}>
-		  <img src= {{entry["image_url"]}} class="rounded mx-auto d-bloc" width="250px" height="250px">
-		  <div class="caption">
-		    <p>
-		      <b> {{entry["title"]}} </b> <br>
-		      By: {{entry["publisher"]}} <br>
-		    </p>
-		  </div>
-		</a>
-		</center>
-	      </div>
-	    </td>
-
-	  {% elif loop.index % (4) == 0 %}
-	    <td>
-	      <div class="thumbnail">
-		<center>
-		<a href={{entry["source_url"]}}>
-		  <img src= {{entry["image_url"]}} class="rounded mx-auto d-bloc" width="250px" height="250px">
-		  <div class="caption">
-		    <p>
-		      <b> {{entry["title"]}} </b> <br>
-		      By: {{entry["publisher"]}} <br>
-		    </p>
-		  </div>
-		</a>
-		</center>
-	      </div>
-	    </td>
-	  </tr>
-	  
-	  {% else %}
-	    <td>
-	      <div class="thumbnail">
-		<center>
-		<a href={{entry["source_url"]}}>
-		  <img src= {{entry["image_url"]}} class="rounded mx-auto d-bloc" width="250px" height="250px">
-		  <div class="caption">
-		    <p>
-		      <b> {{entry["title"]}} </b> <br>
-		      By: {{entry["publisher"]}} <br>
-		    </p>
-		  </div>
-		</a>
-		</center>
-	      </div>
-	    </td>
-
-	  {% endif %}
-	  {% endfor %} 
-	</div>
-      </div>
-	     
-	    
-
-       
-  </body>
-  </center>
-</html>
-
+    </table>
+</div>
 {% endblock %}
