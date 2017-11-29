@@ -30,6 +30,8 @@ def restaurant_search(query, location, radius, max_amt,
 
     if location != '':
         location = find_location(query=location)[0]
+        if location:
+            return None
     else:
         location = {'latitude': None, 'longitude': None}
 
@@ -55,7 +57,10 @@ def restaurant_info(res_id):
     '''Return the Zomato API information about a specific restaurant.'''
     url = ZOMATO_URL + 'restaurant'
     params = {'res_id': res_id}
-    req = requests.get(url, headers=ZOMATO_HEADER, params=params)
+    try:
+        req = requests.get(url, headers=ZOMATO_HEADER, params=params)
+    except HTTPError:
+        return None
     info = req.json()
     return info
 
@@ -66,7 +71,10 @@ def find_location(query, max_amt=1):
         return []
     params = {'query': query,
               'count': max_amt}
-    req = requests.get(url, headers=ZOMATO_HEADER, params=params)
+    try:
+        req = requests.get(url, headers=ZOMATO_HEADER, params=params)
+    except HTTPError:
+        return None
     locs = req.json()
     return locs['location_suggestions']
 

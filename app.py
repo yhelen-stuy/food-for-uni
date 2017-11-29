@@ -121,9 +121,13 @@ def restaurant_results():
             cuisines,
             sort,
             order)
-    return render_template("restaurant_results.html",
-            rests = rests['restaurants'],
-            num = rests['results_shown'])
+    if rests:
+        return render_template("restaurant_results.html",
+                rests = rests['restaurants'],
+                num = rests['results_shown'])
+    else:
+        flash("No restaurants found.")
+        return redirect(url_for("rest_search"))
 
 @app.route("/restaurant", methods=["GET"])
 def restaurant():
@@ -133,8 +137,12 @@ def restaurant():
         flash('No restaurant id given')
         return redirect(url_for('rest_search'))
     rest = api.restaurant_info(rest_id)
-    return render_template("restaurant.html",
-                           rest = rest)
+    if rest:
+        return render_template("restaurant.html",
+                rest = rest)
+    else:
+        flash("Temporarily unavailable, try again later")
+        return redirect_to("restaurant_search.html")
 
 @app.route("/rest_recc")
 def rest_recc():
@@ -142,9 +150,13 @@ def rest_recc():
         rests = api.restaurant_search('', request.args.get('location'), None, 5, [], 'rating','desc')
     else:
         rests = api.restaurant_search('', 'new york city', None, 5, [], 'rating','desc')
-    return render_template("restaurant_recommendation.html",
-                           rests = rests['restaurants'],
-                           num = rests['results_shown'])
+    if rests:
+        return render_template("restaurant_recommendation.html",
+                rests = rests['restaurants'],
+                num = rests['results_shown'])
+    else:
+        flash("Temporarily unavailable, try again later")
+        return redirect(url_for("homepage"))
 
 @app.route("/cipe_recc")
 def cipe_recc():
@@ -166,11 +178,8 @@ def cipe_recc():
     d = json.loads(site_content)
 
     d=d['recipes']
-    
-    return render_template("recipe_recommendation.html", d= d)
 
-    
-                           
+    return render_template("recipe_recommendation.html", d= d)
 
 if __name__ == "__main__":
     app.debug = True
