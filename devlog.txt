@@ -111,6 +111,3 @@ xiangQ -- 2017-11-28 16:21
 Added more pictures for restaurants
 Added a color scheme
 --------------------
-yeH -- 2017-11-28 19:30
-API error handling
---------------------
